@@ -1,6 +1,9 @@
 reflection/build/
 reflection/dist/
 reflection/nbproject/
+
 proxychallenge/build/
-proxychallenge/dist/
 proxychallenge/nbproject/
+
+jdbcexplore/build/
+jdbcexplore/nbproject/

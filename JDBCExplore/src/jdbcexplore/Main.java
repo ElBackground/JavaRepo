@@ -14,41 +14,24 @@ public class Main {
             e.printStackTrace();
         }
                 
-        String  url = "jdbc:postgresql://127.0.0.1:5432/Students", 
+        String  url = "jdbc:postgresql://127.0.0.1:5432/StudentsDB", 
                 name = "el_background",
                 pass = "1111";
         
         ConnectionConfigurer cc = new ConnectionConfigurer(url, name, pass);
         Connection con = cc.openConnection();
         
-        Controller c = new Controller(con);
+        StudentController studentController = new StudentController(con);
+        SubjectController subjectController = new SubjectController(con);
         
-        ArrayList<Student> students = c.getStudents();
-        for (Student student : students) {
+        System.out.println("Students:");
+        ArrayList<StudentModel> students = studentController.getStudents();
+        
+        for (StudentModel student : students) {
+            studentController.studentInit(student);
             System.out.println(student);
         }
-
         
-        
-//        // Добавление
-//        c.addStudent(new Student("Heh10", 30, "Heh10"));
-//        for (Student student : students = c.getStudents()) {
-//            System.out.println(student);
-//        }
-//
-//        // Обновление
-//        c.updateStudent(13, new Student("Heh11", 31, "Heh11"));
-//        for (Student student : students = c.getStudents()) {
-//            System.out.println(student);
-//        }
-//
-//        // Поиск
-//        System.out.println("\tПоиск по ID: " + c.foundStudentById(5));
-//
-//        // Удаление
-//        c.deleteStudent(13);
-//        for (Student student : students = c.getStudents()) {
-//            System.out.println(student);
-//        }
+        cc.closeConnection();
     }
 }

@@ -1,7 +1,5 @@
 # JavaRepo
 
-Trying to pump my Java.
-
 Contacts:
 
 E-mail: elfokbackground@yahoo.com
